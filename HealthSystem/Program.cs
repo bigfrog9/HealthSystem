@@ -22,7 +22,7 @@ namespace HealthSystem
 
         static int minshield;
 
-        static string hstatus;
+        static string status;
 
         static void Main(string[] args)
         {
@@ -34,9 +34,9 @@ namespace HealthSystem
 
             minshield = 0;
 
-            health = 100;
+            health =maxhealth;
 
-            shield = 50;
+            shield = maxshield;
 
             lives = 3;
 
@@ -112,7 +112,7 @@ namespace HealthSystem
 
             Console.WriteLine("" + "");
 
-            Console.WriteLine("Status: " + hstatus);
+            Console.WriteLine("Status: " + status);
 
             Console.WriteLine("" + "");
 
@@ -121,6 +121,47 @@ namespace HealthSystem
             Console.WriteLine("-----------");
 
             Console.WriteLine("" + "");
+
+            if (health == 100)
+            {
+                status = "Top of your game";
+            }
+
+            else if (health >= 90 && health < 100)
+            {
+                status = "Not even hurt";
+            }
+
+            else if (health >= 75 && health < 90)
+            {
+                status = "Scratched up";
+            }
+
+            else if (health >= 50 && health < 75)
+            {
+                status = "Gushing Blood";
+            }
+
+            else if (health >= 25 && health < 50)
+            {
+                status = "Seeing red";
+            }
+
+            else if (health >= 15 && health < 25)
+            {
+                status = "Life flashing before eyes";
+            }
+
+            else if (health > 0 && health < 15)
+            {
+                status = "Not quite dead";
+            }
+
+            else if (health == 0)
+            {
+                status = "Quite dead";
+            }
+
         }
 
         static void Takedamage(int dam)
@@ -185,6 +226,7 @@ namespace HealthSystem
 
         static void heal(int hp)
         {
+            //range checking the healing
             if (health < 0)
             {
                 health = minhealth;
