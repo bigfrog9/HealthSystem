@@ -42,11 +42,22 @@ namespace HealthSystem
 
             minlife = 0;
 
-            health =maxhealth;
+            health = maxhealth;
 
             shield = maxshield;
 
             lives = 3;
+
+            //range checking lives
+            if (lives > maxlife)
+            {
+                lives = maxlife;
+            }
+
+            if (lives< minlife)
+            {
+                lives = minlife;
+            }
 
             ShowHUD();
 
@@ -130,6 +141,7 @@ namespace HealthSystem
 
             Console.WriteLine("" + "");
 
+            //health status'
             if (health == 100)
             {
                 status = "Top of your game";
@@ -236,6 +248,8 @@ namespace HealthSystem
 
         static void heal(int hp)
         {
+            health = health + hp;
+
             //range checking the healing
             if (health < 0)
             {
@@ -246,8 +260,6 @@ namespace HealthSystem
             {
                 health = maxhealth;
             }
-
-            health = health + hp;
 
         }
 
