@@ -24,15 +24,23 @@ namespace HealthSystem
 
         static string status;
 
+        static int maxlife;
+
+        static int minlife;
+
         static void Main(string[] args)
         {
             maxhealth = 100;
 
             minhealth = 0;
 
-            maxshield = 50;
+            maxshield = 100;
 
             minshield = 0;
+
+            maxlife = 100;
+
+            minlife = 0;
 
             health =maxhealth;
 
@@ -42,25 +50,25 @@ namespace HealthSystem
 
             ShowHUD();
 
-            Console.WriteLine("Press any key to apply 30 damage");
+            Console.WriteLine("Press any key to apply 70 damage");
 
             Console.ReadKey(true);
 
             Console.Clear();
 
 
-            Takedamage(30);
+            Takedamage(70);
 
             ShowHUD();
 
-            Console.WriteLine("Press any key to apply 40 damage");
+            Console.WriteLine("Press any key to apply 50 damage");
 
             Console.ReadKey(true);
 
             Console.Clear();
 
 
-            Takedamage(40);
+            Takedamage(50);
 
             ShowHUD();
 
@@ -74,7 +82,7 @@ namespace HealthSystem
 
             ShowHUD();
 
-            Console.WriteLine("Press any key to heal your shield by 50 points");
+            Console.WriteLine("Press any key to heal your shield by 90 points");
 
             Console.ReadKey(true);
 
@@ -220,6 +228,8 @@ namespace HealthSystem
                 
                 health = maxhealth;
             }
+
+            Console.WriteLine(""+"");
 
             Console.WriteLine("You took " + dam + " damage!");
         }
