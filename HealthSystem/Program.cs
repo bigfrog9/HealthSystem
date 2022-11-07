@@ -51,7 +51,7 @@ namespace HealthSystem
             //range checking lives
             if (lives > maxlife)
             {
-                lives = maxlife;
+                lives= maxlife;
             }
 
             if (lives< minlife)
